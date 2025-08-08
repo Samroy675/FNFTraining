@@ -23,7 +23,7 @@ namespace HackathonForCSharp
                 }
 
                 Console.WriteLine("\n\n**************Descending Order of Frequency of Words**************\n\n");
-                var sortedWords = counter.OrderByDescending(pair => pair.Key);
+                var sortedWords = counter.OrderByDescending(pair => pair.Value).ThenByDescending(pair => pair.Key);
                 foreach (var pair in sortedWords)
                 {
                     Console.WriteLine($"{pair.Key} {pair.Value}");
@@ -48,6 +48,7 @@ namespace HackathonForCSharp
         }
     }
 }
+
 
 
 
