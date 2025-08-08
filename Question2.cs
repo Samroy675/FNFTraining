@@ -22,9 +22,8 @@ namespace HackathonForCSharp
             {
                 int index = title.IndexOf("by",StringComparison.OrdinalIgnoreCase); 
                 if(index != -1){
-                    string authorName = title.Substring(0,index);
-                    string cleanedTitle = authorName.Replace("\"",string.Empty); 
-                    list.Add(cleanedTitle);
+                    string authorName = title.Substring(0,index).Replace("\"", "");
+                    list.Add(authorName);
                 }
                 else
                 {
@@ -59,3 +58,4 @@ namespace HackathonForCSharp
         }
     }
 }
+
