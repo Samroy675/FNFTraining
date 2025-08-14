@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+    <link rel="stylesheet" href="styling.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const button = document.getElementById("submitButton");
+            button.addEventListener("click", SaveData);
+        });
+     function SaveData() {
+          let name = document.getElementById("inputField").value;
+          let paswrd = document.getElementById("passwordField").value;
+            Validate(name, paswrd);
+        }
+    </script>
+</head>
+<body>
+    <nav>
+            <ul>
+                <li><a href="SignUp.html">Sign Up</a></li>
+                <li><a href="SignIn.html">Sign In</a></li>
+            </ul>
+        </nav>
+    <div>
+        <h2>Sign In</h2>
+        <input type="text" id="inputField" placeholder="username">
+        <input type="password" id="passwordField" placeholder="password">
+        <button id = "submitButton">Submit</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
