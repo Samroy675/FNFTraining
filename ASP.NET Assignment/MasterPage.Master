@@ -1,0 +1,237 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="SampleWebFormsApp.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .validationBody .verificationBody {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 30px;
+        }
+
+        .userlistBody {
+            font-family: Arial, sans-serif;
+            background-color: #181414;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: mediumvioletred;
+            margin: 30px 0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            width: 260px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .username {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        .email .dob {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .header {
+            text-align: center;
+            color: mediumvioletred;
+            padding: 20px;
+            margin: 5px;
+        }
+
+        .menu {
+            text-align: center;
+            background-color: #e26bd1;
+            color: black;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .foot {
+            color: mediumvioletred;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+
+            .form-container label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="password"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .form-container .aspNetValidator {
+                color: IndianRed;
+                font-size: 0.9em;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+            .form-container .button-container {
+                text-align: center;
+            }
+
+            .form-container input[type="submit"],
+            .form-container input[type="button"] {
+                background-color: #007bff;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .form-container input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
+
+        .validation-summary {
+            color: IndianRed;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        secondPrgmDiv1 {
+            font-weight: 700;
+            color: #FF3300;
+        }
+
+        secondPrgmDiv2 {
+            background-color: #FFFFFF;
+            padding: 10px
+        }
+
+        .secondParaOne {
+            background-color: #66FF33;
+            text-align: center;
+        }
+
+        .thirdPrgmSpanOne {
+            font-size: large;
+            color: #990000;
+            text-align: center;
+            background-color: #FF00FF;
+        }
+
+        #thirdPrgmDiv {
+            color: #FF0000;
+        }
+
+        .thirdPrgmSpanTwo {
+            color: #990000;
+            background-color: #FF00FF;
+        }
+
+        .thirdPrgmSpanthree {
+            font-size: large;
+            color: #990000;
+            text-align: center;
+            background-color: #FF33CC;
+        }
+
+        .thirdPrgmSpanFour {
+            background-color: #FF33CC;
+        }
+
+        #seventhPrgmDiv {
+            display: inline-block;
+            width: 45%;
+        }
+
+        .seventhPrgmDiv {
+            display: inline-block;
+            width: 45%;
+        }
+
+        .auto-style1 {
+            font-size: medium;
+            background-color: #FFFFFF;
+        }
+
+        .auto-style2 {
+            font-size: medium;
+            background-color: #66FF66;
+        }
+
+        .form-label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="header">
+            <h1>Welcome to ASP.NET Training!</h1>
+            <hr />
+            <p>ASP.NET is a RAD Technology for building Web Apps at an industrial Scale. Please visit the links below for more user experience. Happy Coding :) </p>
+        </div>
+        <div class="menu">
+            <asp:Menu ID="Menu1" runat="server" BorderColor="#00CCFF" BorderStyle="Solid" ForeColor="Black" Orientation="Horizontal">
+                <StaticMenuItemStyle BorderColor="#FF9900" BorderStyle="Solid" BorderWidth="5px" HorizontalPadding="30px" ItemSpacing="30px" />
+                <Items>
+                    <asp:MenuItem NavigateUrl="~/Ex01Basics.aspx" Text="First Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex02BasicsIO.aspx" Text="IO Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex03CalcPage.aspx" Text="Calci Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex04DBAccess.aspx" Text="DataBase Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex05StateManagement.aspx" Text="State Management Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex07DisplayProducts.aspx" Text="Display Products Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex08DisconnectedModel.aspx" Text="Disconnected Model Example" />
+                    <asp:MenuItem NavigateUrl="~/Ex10ValidationPage.aspx" Text="Validate Example" />
+                </Items>
+            </asp:Menu>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="mainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="foot">
+            <i>&reg All Rights Reserved</i>
+            <i>Powered by ASP.NET-<%=DateTime.Now.Year %></i>
+        </footer>
+    </form>
+</body>
+</html>
