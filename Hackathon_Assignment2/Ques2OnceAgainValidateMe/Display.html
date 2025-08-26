@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Data Display</title>
+    <link rel="stylesheet" href="displayStyle.css">
+</head>
+<body>
+    <h2>Submitted Form Data</h2>
+    <p><strong>Username:</strong> <span id="username"></span></p>
+    <p><strong>Pin:</strong> <span id="pin"></span></p>
+    <p><strong>State:</strong> <span id="state"></span></p>
+    <p><strong>Validate Pin:</strong> <span id="validatePin"></span></p>
+    <p><strong>Test Me:</strong> <span id="testMe"></span></p>
+    <p><strong>Selected Product:</strong> <span id="product"></span></p>
+
+    <script>
+        document.getElementById("username").textContent = localStorage.getItem("username") || "N/A";
+        document.getElementById("pin").textContent = localStorage.getItem("pin") || "N/A";
+        document.getElementById("state").textContent = localStorage.getItem("state") || "N/A";
+        document.getElementById("validatePin").textContent = localStorage.getItem("validatePin") === "true" ? "Yes" : "No";
+        document.getElementById("testMe").textContent = localStorage.getItem("testMe") === "true" ? "Checked" : "Unchecked";
+        document.getElementById("product").textContent = localStorage.getItem("product") || "N/A";
+    </script>
+</body>
+</html>

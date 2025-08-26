@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validate Me!</title>
+    <script>
+        function validateForm() {
+            const username = document.getElementById("username").value.trim();
+            const pin = document.getElementById("pin").value.trim();
+            const state = document.getElementById("state").value;
+            const validatePin = document.getElementById("validatePin").checked;
+            const testMe = document.getElementById("testMe").checked;
+            const product = document.querySelector('input[name="product"]:checked');
+
+            let messages = [];
+
+            if (username.length < 6 || username.length > 8) {
+                messages.push("Username not validated");
+            }
+
+            if (validatePin && pin === "") {
+                messages.push("Pin not validated");
+            } else if (pin !== "" && !/^[a-zA-Z0-9]+$/.test(pin)) {
+                messages.push("Pin not validated");
+            }
+
+            if (state === "") {
+                messages.push("States not validated");
+            }
+
+            if (!product) {
+                messages.push("Product not validated");
+            }
+
+            messages.push(`Test Me is ${testMe ? "checked" : "unchecked"}.`);
+
+            if (messages.length > 1) {
+                alert(messages.join("\n"));
+                return false;
+            }
+
+            // Save to localStorage
+            localStorage.setItem("username", username);
+            localStorage.setItem("pin", pin);
+            localStorage.setItem("state", state);
+            localStorage.setItem("validatePin", validatePin);
+            localStorage.setItem("testMe", testMe);
+            localStorage.setItem("product", product.value);
+
+            // Redirect
+            window.location.href = "Display.html";
+            return false;
+        }
+    </script>
+    <link rel="stylesheet" href="validateStyle.css">
+</head>
+<body>
+    <h2>Validate Me!</h2>
+    <form onsubmit="return validateForm()">
+        <label for="username">Username (6-8 characters):</label>
+        <input type="text" id="username" name="username">
+
+        <label for="pin">Pin:</label>
+        <input type="text" id="pin" name="pin">
+
+        <input type="checkbox" id="validatePin" name="validatePin">
+        <label for="validatePin">Validate Pin</label>
+
+        <input type="checkbox" id="testMe" name="testMe">
+        <label for="testMe">Test Me</label>
+
+        <label for="state">States:</label>
+        <select id="state" name="state">
+            <option value="">--Select State--</option>
+            <option value="option1">option1</option>
+            <option value="option2">option2</option>
+        </select>
+
+        <label>Choose one:</label>
+        <div class="radio-group">
+            <input type="radio" id="milk" name="product" value="Milk">
+            <label for="milk">Milk</label>
+
+            <input type="radio" id="butter" name="product" value="Butter">
+            <label for="butter">Butter</label>
+
+            <input type="radio" id="cheese" name="product" value="Cheese">
+            <label for="cheese">Cheese</label>
+        </div>
+
+        <input type="submit" value="Check Form">
+    </form>
+</body>
+</html>
+
